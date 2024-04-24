@@ -28,6 +28,10 @@ public class Controller
 		JOptionPane.showMessageDialog(window, error.getMessage(), "woopsy", JOptionPane.ERROR_MESSAGE);
 	}
 	
+	/**
+	 * Gets a random url to a duck image.
+	 * @return The url.
+	 */
 	public URL getRandomDuckURL()
 	{
 		InternetDuck duck = (InternetDuck)IOController.readSingleJSON(this, duckURLBase, "random?format=json", "duck");

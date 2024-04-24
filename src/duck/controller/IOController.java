@@ -12,6 +12,14 @@ import java.awt.Image;
 
 public class IOController
 {
+	/**
+	 * Gets a object from a piece of json data on the internet.
+	 * @param app The controller of the app.
+	 * @param urlBase The base url.
+	 * @param appended Any other options used for the url.
+	 * @param type The type of the object. Currently only has "duck".
+	 * @return A java object that you can cast to whatever you need or null.
+	 */
 	public static Object readSingleJSON(Controller app, String urlBase, String appended, String type)
 	{
 		ObjectMapper mapper = new ObjectMapper();
@@ -32,6 +40,12 @@ public class IOController
 		return null;
 	}
 	
+	/**
+	 * Gets a ImageIcon from a url of a image on the internet.
+	 * @param app The controller of the app.
+	 * @param url The url to the image.
+	 * @return A ImageIcon or null.
+	 */
 	public static ImageIcon readImageIconFromUrl(Controller app, URL url)
 	{
 		ImageIcon imageIcon = null;

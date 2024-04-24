@@ -4,12 +4,14 @@ import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import javax.swing.SpringLayout;
+import javax.swing.ImageIcon;
 
 import java.awt.Color;
 import java.awt.Image;
 import java.awt.GridLayout;
 
 import duck.controller.Controller;
+import duck.controller.IOController;
 
 public class DuckPanel extends JPanel
 {
@@ -48,7 +50,7 @@ public class DuckPanel extends JPanel
 	
 	private void setupListeners()
 	{
-		
+		duckButton.addActionListener(click -> loadRandomDuck());
 	}
 	
 	private void setupLayout()
@@ -62,5 +64,14 @@ public class DuckPanel extends JPanel
 		layout.putConstraint(SpringLayout.WEST, displayLabel, 10, SpringLayout.EAST, menuPanel);
 		layout.putConstraint(SpringLayout.EAST, displayLabel, 10, SpringLayout.EAST, this);
 		layout.putConstraint(SpringLayout.SOUTH, displayLabel, 10, SpringLayout.SOUTH, this);
+	}
+	
+	/**
+	 * Loads a random duck into the display label.
+	 */
+	private void loadRandomDuck()
+	{
+		ImageIcon duckIcon = IOController.readImageIconFromUrl(app, app.getRandomDuckURL());
+		displayLabel.setIcon(duckIcon);
 	}
 }
