@@ -40,7 +40,7 @@ public class DuckPanel extends JPanel
 		setBackground(Color.CYAN);
 		setLayout(layout);
 		
-		//this.add(displayLabel);
+		this.add(displayLabel);
 		this.add(menuPanel);
 		
 		menuPanel.add(duckButton);
@@ -57,5 +57,10 @@ public class DuckPanel extends JPanel
 		layout.putConstraint(SpringLayout.WEST, menuPanel, 10, SpringLayout.WEST, this);
 		layout.putConstraint(SpringLayout.EAST, menuPanel, 100, SpringLayout.WEST, this);
 		layout.putConstraint(SpringLayout.SOUTH, menuPanel, 500, SpringLayout.NORTH, this);
+		
+		layout.putConstraint(SpringLayout.NORTH, displayLabel, 10, SpringLayout.NORTH, this);
+		layout.putConstraint(SpringLayout.WEST, displayLabel, 10, SpringLayout.EAST, menuPanel);
+		layout.putConstraint(SpringLayout.EAST, displayLabel, 10, SpringLayout.EAST, this);
+		layout.putConstraint(SpringLayout.SOUTH, displayLabel, 10, SpringLayout.SOUTH, this);
 	}
 }
