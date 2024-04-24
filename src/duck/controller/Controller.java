@@ -5,6 +5,9 @@ import javax.swing.JOptionPane;
 import duck.model.InternetDuck;
 import duck.view.DuckFrame;
 
+import java.net.URL;
+import java.net.MalformedURLException;
+
 public class Controller
 {
 	private String duckURLBase;
@@ -18,12 +21,27 @@ public class Controller
 	
 	public void start()
 	{
-		InternetDuck duck = (InternetDuck)IOController.readSingleJSON(this, duckURLBase, "random?format=json", "duck");
-		System.out.println(duck);
 	}
 	
 	public void handleError(Exception error)
 	{
 		JOptionPane.showMessageDialog(window, error.getMessage(), "woopsy", JOptionPane.ERROR_MESSAGE);
+	}
+	
+	public URL getRandomDuckURL()
+	{
+		InternetDuck duck = (InternetDuck)IOController.readSingleJSON(this, duckURLBase, "random?format=json", "duck");
+		URL duckURL = null;
+		
+		try
+		{
+			duckURL = new URL(duck.url());
+		}
+		catch (MalformedURLException error)
+		{
+			handleError(error);
+		}
+		
+		return duckURL;
 	}
 }
