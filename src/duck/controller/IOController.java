@@ -46,7 +46,7 @@ public class IOController
 	 * @param url The url to the image.
 	 * @return A ImageIcon or null.
 	 */
-	public static ImageIcon readImageIconFromUrl(Controller app, URL url)
+	public static ImageIcon readImageIconFromURL(Controller app, URL url)
 	{
 		ImageIcon imageIcon = null;
 		

@@ -71,7 +71,7 @@ public class DuckPanel extends JPanel
 	 */
 	private void loadRandomDuck()
 	{
-		ImageIcon duckIcon = IOController.readImageIconFromUrl(app, app.getRandomDuckURL());
+		ImageIcon duckIcon = IOController.readImageIconFromURL(app, app.getRandomDuckURL());
 		displayLabel.setIcon(duckIcon);
 	}
 }
