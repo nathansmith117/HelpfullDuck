@@ -14,7 +14,7 @@ public class Controller
 		
 	}
 	
-	public void handleErrror(Exception error)
+	public void handleError(Exception error)
 	{
 		JOptionPane.showMessageDialog(null, error.getMessage(), "woopsy", JOptionPane.ERROR_MESSAGE);
 	}
