@@ -4,7 +4,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>40</x>
+      <x>30</x>
       <y>30</y>
       <w>250</w>
       <h>140</h>
@@ -25,7 +25,7 @@ bg=blue
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>330</x>
+      <x>320</x>
       <y>50</y>
       <w>410</w>
       <h>110</h>
@@ -40,7 +40,7 @@ _+ readImageIconFromURL(Controller, URL) : ImageIcon_</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>30</x>
+      <x>20</x>
       <y>200</y>
       <w>280</w>
       <h>90</h>
@@ -55,7 +55,7 @@ Don't know how to do that in uml ):</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>20</x>
+      <x>10</x>
       <y>360</y>
       <w>320</w>
       <h>110</h>
@@ -73,7 +73,7 @@ bg=red
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>370</x>
+      <x>360</x>
       <y>270</y>
       <w>300</w>
       <h>230</h>
