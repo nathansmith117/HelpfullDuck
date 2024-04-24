@@ -9,13 +9,13 @@ import duck.model.InternetDuck;
 
 public class IOController
 {
-	public static Object readSingleJSON(Controller app, String urlBase, String appended)
+	public static Object readSingleJSON(Controller app, String urlBase, String appended, String type)
 	{
 		ObjectMapper mapper = new ObjectMapper();
 		
 		try
 		{
-			if (urlBase.contains("random-d"))
+			if (type.equals("duck"))
 			{
 				InternetDuck duck = mapper.readValue(new URL(urlBase + appended), InternetDuck.class);
 				return duck;
