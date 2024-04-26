@@ -19,8 +19,10 @@ public class DuckPanel extends JPanel
 	
 	private SpringLayout layout;
 	private JLabel displayLabel;
+	
 	private JPanel menuPanel;
 	private JButton duckButton;
+	private JButton newWindowButton;
 	
 	public DuckPanel(Controller app)
 	{
@@ -31,6 +33,7 @@ public class DuckPanel extends JPanel
 		this.displayLabel = new JLabel("Debugging Duck");
 		this.menuPanel = new JPanel(new GridLayout(0, 1));
 		this.duckButton = new JButton("Duck");
+		this.newWindowButton = new JButton("New window");
 		
 		setupPanel();
 		setupListeners();
@@ -46,6 +49,7 @@ public class DuckPanel extends JPanel
 		this.add(menuPanel);
 		
 		menuPanel.add(duckButton);
+		menuPanel.add(newWindowButton);
 	}
 	
 	private void setupListeners()

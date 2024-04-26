@@ -54,16 +54,14 @@ public class IOController
 		{
 			BufferedImage image = ImageIO.read(url);
 			
-			if (image.getHeight() > 500 || image.getWidth() > 500)
-			{
-				Image temp = image.getScaledInstance(500, -1, Image.SCALE_SMOOTH);
-				BufferedImage resized = new BufferedImage(500, 500, BufferedImage.TYPE_INT_RGB);
-				Graphics2D imageGraphics = resized.createGraphics();
-				imageGraphics.drawImage(temp, 0, 0, null);
-				imageGraphics.dispose();
-				
-				image = resized;
-			}
+			// Always scale.
+			Image temp = image.getScaledInstance(640, -1, Image.SCALE_SMOOTH);
+			BufferedImage resized = new BufferedImage(640, 640, BufferedImage.TYPE_INT_RGB);
+			Graphics2D imageGraphics = resized.createGraphics();
+			imageGraphics.drawImage(temp, 0, 0, null);
+			imageGraphics.dispose();
+			
+			image = resized;
 			
 			imageIcon = new ImageIcon(image);
 		}

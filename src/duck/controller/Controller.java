@@ -4,19 +4,25 @@ import javax.swing.JOptionPane;
 
 import duck.model.InternetDuck;
 import duck.view.DuckFrame;
+import duck.view.DuckPopupFrame;
 
 import java.net.URL;
 import java.net.MalformedURLException;
+import java.util.ArrayList;
 
 public class Controller
 {
 	private String duckURLBase;
 	private DuckFrame window;
 	
+	// A list of all the duck popup windows.
+	private ArrayList<DuckPopupFrame> duckWindows;
+	
 	public Controller()
 	{
 		this.duckURLBase = "https://random-d.uk/api/";
 		this.window = new DuckFrame(this);
+		this.duckWindows = new ArrayList<DuckPopupFrame>();
 	}
 	
 	public void start()
