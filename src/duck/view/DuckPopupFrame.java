@@ -26,4 +26,13 @@ public class DuckPopupFrame extends JFrame
 		setResizable(true);
 		setVisible(true);
 	}
+
+	/**
+	 * Used to get the duck popup panel so it can be controlled by the master window.
+	 * @return A duck popup panel.
+	 */
+	public DuckPopupPanel getPanel()
+	{
+		return this.panel;
+	}
 }

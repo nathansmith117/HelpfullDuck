@@ -9,6 +9,8 @@ import javax.swing.ImageIcon;
 import java.awt.Color;
 import java.awt.Image;
 import java.awt.GridLayout;
+import java.awt.MouseInfo;
+import java.awt.Point;
 
 import duck.controller.Controller;
 import duck.controller.IOController;
@@ -77,6 +79,14 @@ public class DuckPanel extends JPanel
 	private void openDuckWindow()
 	{
 		DuckPopupFrame duckWindow = new DuckPopupFrame(app);
+		
+		// Moves the window to the cursor position.
+		Point mousePoint = MouseInfo.getPointerInfo().getLocation();
+		duckWindow.setLocation(mousePoint.x, mousePoint.y);
+		
+		// Loads a duck on open.
+		duckWindow.getPanel().loadRandomDuck();
+		
 		app.addDuckWindow(duckWindow);
 	}
 	
@@ -85,7 +95,7 @@ public class DuckPanel extends JPanel
 	 */
 	private void loadRandomDuck()
 	{
-		ImageIcon duckIcon = IOController.readImageIconFromURL(app, app.getRandomDuckURL());
+		ImageIcon duckIcon = IOController.readImageIconFromURL(app, app.getRandomDuckURL(), 640);
 		displayLabel.setIcon(duckIcon);
 	}
 }

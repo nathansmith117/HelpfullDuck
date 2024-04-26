@@ -44,9 +44,10 @@ public class IOController
 	 * Gets a ImageIcon from a url of a image on the internet.
 	 * @param app The controller of the app.
 	 * @param url The url to the image.
+	 * @param iconSize The size the icon will be scaled to.
 	 * @return A ImageIcon or null.
 	 */
-	public static ImageIcon readImageIconFromURL(Controller app, URL url)
+	public static ImageIcon readImageIconFromURL(Controller app, URL url, int iconSize)
 	{
 		ImageIcon imageIcon = null;
 		
@@ -54,9 +55,9 @@ public class IOController
 		{
 			BufferedImage image = ImageIO.read(url);
 			
-			// Always scale.
-			Image temp = image.getScaledInstance(640, -1, Image.SCALE_SMOOTH);
-			BufferedImage resized = new BufferedImage(640, 640, BufferedImage.TYPE_INT_RGB);
+			// Scale the icon.
+			Image temp = image.getScaledInstance(iconSize, -1, Image.SCALE_SMOOTH);
+			BufferedImage resized = new BufferedImage(iconSize, iconSize, BufferedImage.TYPE_INT_RGB);
 			Graphics2D imageGraphics = resized.createGraphics();
 			imageGraphics.drawImage(temp, 0, 0, null);
 			imageGraphics.dispose();
