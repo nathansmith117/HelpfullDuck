@@ -4,29 +4,32 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>30</x>
+      <x>20</x>
       <y>30</y>
-      <w>250</w>
-      <h>140</h>
+      <w>340</w>
+      <h>190</h>
     </coordinates>
     <panel_attributes>Controller
 bg=blue
 --
 - duckURLBase : String
 - window : DuckFrame
+- duckWindows : ArrayList&lt;DuckPopupFrame&gt;
 --
 --
 + Controller() : constructor
 + start() : void
 + handleError(Exception) : void
-+ getRandomDuckURL() : URL</panel_attributes>
++ getRandomDuckURL() : URL
++ addDuckWindow(DuckPopupFrame) : void
++ removeDuckWindow(DuckPopupFrame) : void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>320</x>
-      <y>50</y>
+      <x>420</x>
+      <y>40</y>
       <w>410</w>
       <h>110</h>
     </coordinates>
@@ -34,14 +37,14 @@ bg=blue
 bg=blue
 --
 _+ readSingleJSON(Controller, String, String, String) : Object_
-_+ readImageIconFromURL(Controller, URL) : ImageIcon_</panel_attributes>
+_+ readImageIconFromURL(Controller, URL, int) : ImageIcon_</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
       <x>20</x>
-      <y>200</y>
+      <y>230</y>
       <w>280</w>
       <h>90</h>
     </coordinates>
@@ -73,7 +76,7 @@ bg=red
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>360</x>
+      <x>350</x>
       <y>270</y>
       <w>300</w>
       <h>230</h>
@@ -86,12 +89,56 @@ bg=red
 - displayLabel : JLabel
 - menuPanel : JPanel
 - duckButton : JButton
+- newWindowButton : JButton
 --
 + DuckPanel(Controller) : constructor
 - setupPanel() : void
 - setupListeners() : void
 - setupLayout() : void
+- openDuckWindow() : void
 - loadRandomDuck() : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>30</x>
+      <y>530</y>
+      <w>390</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>DuckPopupFrame
+bg=red
+--
+- app : Controller
+- panel : DuckPopupPanel
+--
++ DuckPopupFrame(Controller) : constructor
+- setupFrame() : void
++ getPanel() : DuckPopupPanel
++ dispose() : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>450</x>
+      <y>540</y>
+      <w>330</w>
+      <h>270</h>
+    </coordinates>
+    <panel_attributes>DuckPopupPanel
+bg=red
+--
+- app : Controller
+- layout : SpringLayout
+- displayLabel : JLabel
+--
++ DuckPopupPanel(Controller) : constructor
+- setupPanel() : void
+- setupListeners() : void
+- setupLayout() : void
++ loadRandomDuck() : void</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>

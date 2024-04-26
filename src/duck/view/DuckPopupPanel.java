@@ -101,7 +101,7 @@ public class DuckPopupPanel extends JPanel
 	}
 	
 	/**
-	 * Loads a random duck into the display label.
+	 * Loads a random duck into the display label. Its public so it can be controlled by rest of the program.
 	 */
 	public void loadRandomDuck()
 	{
