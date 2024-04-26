@@ -15,6 +15,9 @@ import java.awt.Point;
 import duck.controller.Controller;
 import duck.controller.IOController;
 
+/**
+ * The panel for the main window.
+ */
 public class DuckPanel extends JPanel
 {
 	private Controller app;
@@ -26,6 +29,10 @@ public class DuckPanel extends JPanel
 	private JButton duckButton;
 	private JButton newWindowButton;
 	
+	/**
+	 * Creates the panel and all the widgets.
+	 * @param app A reference to the controller.
+	 */
 	public DuckPanel(Controller app)
 	{
 		super();
@@ -42,6 +49,9 @@ public class DuckPanel extends JPanel
 		setupLayout();
 	}
 	
+	/**
+	 * Handles the setup of the panel to make the constructor smaller.
+	 */
 	private void setupPanel()
 	{
 		setBackground(Color.CYAN);
@@ -54,12 +64,18 @@ public class DuckPanel extends JPanel
 		menuPanel.add(newWindowButton);
 	}
 	
+	/**
+	 * Sets up all the listeners for buttons and other things.
+	 */
 	private void setupListeners()
 	{
 		duckButton.addActionListener(click -> loadRandomDuck());
 		newWindowButton.addActionListener(click -> openDuckWindow());
 	}
 	
+	/**
+	 * Sets the constraints for widgets and panels.
+	 */
 	private void setupLayout()
 	{
 		layout.putConstraint(SpringLayout.NORTH, menuPanel, 10, SpringLayout.NORTH, this);

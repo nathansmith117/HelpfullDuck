@@ -3,11 +3,18 @@ package duck.view;
 import javax.swing.JFrame;
 import duck.controller.Controller;
 
+/**
+ * A small popup window with a duck on it.
+ */
 public class DuckPopupFrame extends JFrame
 {
 	private Controller app;
 	private DuckPopupPanel panel;
 	
+	/**
+	 * Creates the frame.
+	 * @param app A reference to the controller.
+	 */
 	public DuckPopupFrame(Controller app)
 	{
 		super();
@@ -17,6 +24,9 @@ public class DuckPopupFrame extends JFrame
 		setupFrame();
 	}
 	
+	/**
+	 * Sets things like the size of the frame, its panel...
+	 */
 	private void setupFrame()
 	{
 		setContentPane(panel);
@@ -36,6 +46,9 @@ public class DuckPopupFrame extends JFrame
 		return this.panel;
 	}
 	
+	/**
+	 * Overrides the dispose so it can remove itself from the controller when closed.
+	 */
 	@Override
 	public void dispose()
 	{

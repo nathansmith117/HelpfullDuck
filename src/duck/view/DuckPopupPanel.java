@@ -12,6 +12,9 @@ import java.awt.Color;
 import duck.controller.Controller;
 import duck.controller.IOController;
 
+/**
+ * The panel for the tiny duck popup.
+ */
 public class DuckPopupPanel extends JPanel
 {
 	private Controller app;
@@ -19,6 +22,10 @@ public class DuckPopupPanel extends JPanel
 	private SpringLayout layout;
 	private JLabel displayLabel;
 	
+	/**
+	 * Creates the panel.
+	 * @param app A reference to the controller.
+	 */
 	public DuckPopupPanel(Controller app)
 	{
 		super();
@@ -32,6 +39,9 @@ public class DuckPopupPanel extends JPanel
 		setupLayout();
 	}
 	
+	/**
+	 * Sets up the panel. All it has is a image so not much to worry about.
+	 */
 	private void setupPanel()
 	{
 		setBackground(Color.CYAN);
@@ -40,6 +50,9 @@ public class DuckPopupPanel extends JPanel
 		this.add(displayLabel);
 	}
 	
+	/**
+	 * Sets up the listeners which isn't much since its a simple window.
+	 */
 	private void setupListeners()
 	{
 		this.addMouseListener(new MouseListener()
@@ -75,6 +88,9 @@ public class DuckPopupPanel extends JPanel
 		);
 	}
 	
+	/**
+	 * Sets the constraints for objects on screen.
+	 */
 	private void setupLayout()
 	{
 

@@ -10,6 +10,9 @@ import java.awt.image.BufferedImage;
 import java.awt.Graphics2D;
 import java.awt.Image;
 
+/**
+ * A controller for holding IO with the file system and web.
+ */
 public class IOController
 {
 	/**

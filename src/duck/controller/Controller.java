@@ -10,6 +10,9 @@ import java.net.URL;
 import java.net.MalformedURLException;
 import java.util.ArrayList;
 
+/**
+ * The controller for the app since it uses MVC design.
+ */
 public class Controller
 {
 	private String duckURLBase;
@@ -18,6 +21,9 @@ public class Controller
 	// A list of all the duck popup windows.
 	private ArrayList<DuckPopupFrame> duckWindows;
 	
+	/**
+	 * Initializes all the data members and opens a window.
+	 */
 	public Controller()
 	{
 		this.duckURLBase = "https://random-d.uk/api/";
@@ -25,12 +31,15 @@ public class Controller
 		this.duckWindows = new ArrayList<DuckPopupFrame>();
 	}
 	
+	/**
+	 * Called after the controller is created.
+	 */
 	public void start()
 	{
 	}
 	
 	/**
-	 * Shows a error message in a popup.
+	 * Shows an error message in a popup.
 	 * @param error The error that will be shown in the popup.
 	 */
 	public void handleError(Exception error)
