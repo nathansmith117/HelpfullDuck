@@ -22,8 +22,8 @@ public class DuckPopupFrame extends JFrame
 		setContentPane(panel);
 		setSize(640, 480);
 		setTitle("Another duck!");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setResizable(true);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setResizable(false);
 		setVisible(true);
 	}
 
@@ -34,5 +34,12 @@ public class DuckPopupFrame extends JFrame
 	public DuckPopupPanel getPanel()
 	{
 		return this.panel;
+	}
+	
+	@Override
+	public void dispose()
+	{
+		super.dispose();
+		app.removeDuckWindow(this);
 	}
 }

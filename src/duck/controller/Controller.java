@@ -67,4 +67,13 @@ public class Controller
 	{
 		duckWindows.add(duckWindow);
 	}
+	
+	/**
+	 * Removes the duckWindow from duckWindows if its in there.
+	 * @param duckWindow The window to remove.
+	 */
+	public void removeDuckWindow(DuckPopupFrame duckWindow)
+	{
+		duckWindows.remove(duckWindow);
+	}
 }
