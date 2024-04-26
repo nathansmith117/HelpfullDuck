@@ -55,6 +55,7 @@ public class DuckPanel extends JPanel
 	private void setupListeners()
 	{
 		duckButton.addActionListener(click -> loadRandomDuck());
+		newWindowButton.addActionListener(click -> openDuckWindow());
 	}
 	
 	private void setupLayout()
@@ -68,6 +69,15 @@ public class DuckPanel extends JPanel
 		layout.putConstraint(SpringLayout.WEST, displayLabel, 10, SpringLayout.EAST, menuPanel);
 		layout.putConstraint(SpringLayout.EAST, displayLabel, 10, SpringLayout.EAST, this);
 		layout.putConstraint(SpringLayout.SOUTH, displayLabel, 10, SpringLayout.SOUTH, this);
+	}
+	
+	/**
+	 * Opens a popup duck window and adds it to the controller.
+	 */
+	private void openDuckWindow()
+	{
+		DuckPopupFrame duckWindow = new DuckPopupFrame(app);
+		app.addDuckWindow(duckWindow);
 	}
 	
 	/**

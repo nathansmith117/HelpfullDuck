@@ -29,6 +29,10 @@ public class Controller
 	{
 	}
 	
+	/**
+	 * Shows a error message in a popup.
+	 * @param error The error that will be shown in the popup.
+	 */
 	public void handleError(Exception error)
 	{
 		JOptionPane.showMessageDialog(window, error.getMessage(), "woopsy", JOptionPane.ERROR_MESSAGE);
@@ -53,5 +57,14 @@ public class Controller
 		}
 		
 		return duckURL;
+	}
+	
+	/**
+	 * Adds a window to the list of duck windows.
+	 * @param duckWindow
+	 */
+	public void addDuckWindow(DuckPopupFrame duckWindow)
+	{
+		duckWindows.add(duckWindow);
 	}
 }
