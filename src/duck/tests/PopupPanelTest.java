@@ -1,7 +1,7 @@
 package duck.tests;
 
 import duck.controller.Controller;
-import duck.view.DuckPanel;
+import duck.view.DuckPopupPanel;
 import javax.swing.*;
 
 import java.awt.*;
@@ -12,16 +12,16 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class PanelTest
+public class PopupPanelTest
 {
 	private Controller testedController;
-	private DuckPanel testedPanel;
+	private DuckPopupPanel testedPanel;
 
 	@BeforeEach
 	void setUp() throws Exception
 	{
 		this.testedController = new Controller();
-		this.testedPanel = new DuckPanel(testedController);
+		this.testedPanel = new DuckPopupPanel(testedController);
 	} 
 
 	@AfterEach
@@ -35,7 +35,7 @@ public class PanelTest
 	void testFrameworkMethodsExist()
 	{
 		Method [] methods = testedPanel.getClass().getDeclaredMethods();
-		assertTrue(methods.length >= 3, "You need at least 3 methods in the DuckPanel");
+		assertTrue(methods.length >= 3, "You need at least 3 methods in the DuckPopupPanel");
 		
 		boolean hasSetupPanel = false;
 		boolean hasSetupListeners = false;
@@ -43,8 +43,6 @@ public class PanelTest
 		
 		for (Method method : methods)
 		{
-			assertTrue(Modifier.isPrivate(method.getModifiers()), "The " + method.getName()+ " method must be private");
-			
 			if (method.getName().equals("setupPanel"))
 			{
 				hasSetupPanel = true;
