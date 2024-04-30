@@ -12,6 +12,8 @@ import java.awt.Color;
 import duck.controller.Controller;
 import duck.controller.IOController;
 
+import java.net.URL;
+
 /**
  * The panel for the tiny duck popup.
  */
@@ -21,6 +23,8 @@ public class DuckPopupPanel extends JPanel
 	
 	private SpringLayout layout;
 	private JLabel displayLabel;
+	
+	private URL duckURL;
 	
 	/**
 	 * Creates the panel.
@@ -33,6 +37,8 @@ public class DuckPopupPanel extends JPanel
 		
 		this.layout = new SpringLayout();
 		this.displayLabel = new JLabel("");
+		
+		this.duckURL = null;
 		
 		setupPanel();
 		setupListeners();
@@ -107,5 +113,25 @@ public class DuckPopupPanel extends JPanel
 	{
 		ImageIcon duckIcon = IOController.readImageIconFromURL(app, app.getRandomDuckURL(), 480);
 		displayLabel.setIcon(duckIcon);
+	}
+	
+	/**
+	 * Loads a duck on screen from a url.
+	 * @param duckURL The url to the duck image.
+	 */
+	private void loadDuck(URL duckURL)
+	{
+		this.duckURL = duckURL;
+		ImageIcon duckIcon = IOController.readImageIconFromURL(app, duckURL, 480);
+		displayLabel.setIcon(duckIcon);
+	}
+	
+	/**
+	 * Gets the url of the current duck.
+	 * @return The url or null.
+	 */
+	private URL getDuckURL()
+	{
+		return this.duckURL;
 	}
 }

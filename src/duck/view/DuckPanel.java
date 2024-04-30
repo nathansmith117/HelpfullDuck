@@ -15,6 +15,8 @@ import java.awt.Point;
 import duck.controller.Controller;
 import duck.controller.IOController;
 
+import java.net.URL;
+
 /**
  * The panel for the main window.
  */
@@ -28,6 +30,8 @@ public class DuckPanel extends JPanel
 	private JPanel menuPanel;
 	private JButton duckButton;
 	private JButton newWindowButton;
+	
+	private URL duckURL;
 	
 	/**
 	 * Creates the panel and all the widgets.
@@ -43,6 +47,8 @@ public class DuckPanel extends JPanel
 		this.menuPanel = new JPanel(new GridLayout(0, 1));
 		this.duckButton = new JButton("Duck");
 		this.newWindowButton = new JButton("New window");
+		
+		this.duckURL = null;
 		
 		setupPanel();
 		setupListeners();
@@ -111,7 +117,28 @@ public class DuckPanel extends JPanel
 	 */
 	private void loadRandomDuck()
 	{
-		ImageIcon duckIcon = IOController.readImageIconFromURL(app, app.getRandomDuckURL(), 640);
+		duckURL = app.getRandomDuckURL();
+		ImageIcon duckIcon = IOController.readImageIconFromURL(app, duckURL, 640);
 		displayLabel.setIcon(duckIcon);
+	}
+	
+	/**
+	 * Loads a duck on screen from a url.
+	 * @param duckURL The url to the duck image.
+	 */
+	private void loadDuck(URL duckURL)
+	{
+		this.duckURL = duckURL;
+		ImageIcon duckIcon = IOController.readImageIconFromURL(app, duckURL, 640);
+		displayLabel.setIcon(duckIcon);
+	}
+	
+	/**
+	 * Gets the url of the current duck.
+	 * @return The url or null.
+	 */
+	private URL getDuckURL()
+	{
+		return this.duckURL;
 	}
 }
