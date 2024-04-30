@@ -12,11 +12,18 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+/**
+ * Tests the popup panel.
+ */
 public class PopupPanelTest
 {
 	private Controller testedController;
 	private DuckPopupPanel testedPanel;
 
+	/**
+	 * Creates the controller and popup panel.
+	 * @throws Exception
+	 */
 	@BeforeEach
 	void setUp() throws Exception
 	{
@@ -24,6 +31,10 @@ public class PopupPanelTest
 		this.testedPanel = new DuckPopupPanel(testedController);
 	} 
 
+	/**
+	 * Destroys the controller and popup panel.
+	 * @throws Exception
+	 */
 	@AfterEach
 	void tearDown() throws Exception
 	{
@@ -31,6 +42,10 @@ public class PopupPanelTest
 		this.testedPanel = null;
 	}
 
+	/**
+	 * Checks if it has the setup methods.
+	 * It doesn't care if the methods are private or public since its being controlled by another panel.
+	 */
 	@Test
 	void testFrameworkMethodsExist()
 	{
@@ -67,6 +82,9 @@ public class PopupPanelTest
 		
 	}
 	
+	/**
+	 * Checks the layout.
+	 */
 	@Test
 	void testPanelComponents()
 	{

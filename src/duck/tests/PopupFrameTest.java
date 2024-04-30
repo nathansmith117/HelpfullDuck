@@ -13,11 +13,18 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+/**
+ * A simple test for the popup frame.
+ */
 public class PopupFrameTest
 {
 	private Controller testedController;
 	private DuckPopupFrame testedFrame;
 
+	/**
+	 * Creates the controller and popup frame.
+	 * @throws Exception
+	 */
 	@BeforeEach
 	void setUp() throws Exception
 	{
@@ -25,6 +32,10 @@ public class PopupFrameTest
 		this.testedFrame = new DuckPopupFrame(testedController);
 	}
 
+	/**
+	 * Destroys the controller and popup frame.
+	 * @throws Exception
+	 */
 	@AfterEach
 	void tearDown() throws Exception
 	{
@@ -32,6 +43,9 @@ public class PopupFrameTest
 		this.testedFrame = null;
 	}
 
+	/**
+	 * Tests a bunch of small things about the frame.
+	 */
 	@Test
 	void testDuckFrame()
 	{

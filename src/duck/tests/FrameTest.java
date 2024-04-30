@@ -13,11 +13,18 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+/**
+ * A simple test for the frame.
+ */
 public class FrameTest
 {
 	private Controller testedController;
 	private DuckFrame testedFrame;
 
+	/**
+	 * Creates a controller and frame.
+	 * @throws Exception
+	 */
 	@BeforeEach
 	void setUp() throws Exception
 	{
@@ -25,6 +32,10 @@ public class FrameTest
 		this.testedFrame = new DuckFrame(testedController);
 	}
 
+	/**
+	 * Destroys the controller and frame.
+	 * @throws Exception
+	 */
 	@AfterEach
 	void tearDown() throws Exception
 	{
@@ -32,6 +43,9 @@ public class FrameTest
 		this.testedFrame = null;
 	}
 
+	/**
+	 * Tests things about the frame like is it a JFrame, how many methods does it have...
+	 */
 	@Test
 	void testDuckFrame()
 	{

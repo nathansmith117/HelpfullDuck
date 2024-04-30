@@ -12,11 +12,18 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+/**
+ * A test for the panel.
+ */
 public class PanelTest
 {
 	private Controller testedController;
 	private DuckPanel testedPanel;
 
+	/**
+	 * Creates the controller and panel.
+	 * @throws Exception
+	 */
 	@BeforeEach
 	void setUp() throws Exception
 	{
@@ -24,6 +31,10 @@ public class PanelTest
 		this.testedPanel = new DuckPanel(testedController);
 	} 
 
+	/**
+	 * Destroys the controller and panel.
+	 * @throws Exception
+	 */
 	@AfterEach
 	void tearDown() throws Exception
 	{
@@ -31,6 +42,9 @@ public class PanelTest
 		this.testedPanel = null;
 	}
 
+	/**
+	 * Tests the setup methods and if all the methods are private.
+	 */
 	@Test
 	void testFrameworkMethodsExist()
 	{
@@ -69,6 +83,9 @@ public class PanelTest
 		
 	}
 	
+	/**
+	 * Checks the layout.
+	 */
 	@Test
 	void testPanelComponents()
 	{

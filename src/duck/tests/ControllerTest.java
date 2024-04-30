@@ -10,22 +10,36 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+/**
+ * A test for the controller.
+ */
 public class ControllerTest
 {
 	private Controller testedController;
 
+	/**
+	 * Creates a new controller.
+	 * @throws Exception
+	 */
 	@BeforeEach
 	void setUp() throws Exception
 	{
 		this.testedController = new Controller();
 	}
 
+	/**
+	 * Destroys the controller.
+	 * @throws Exception
+	 */
 	@AfterEach
 	void tearDown() throws Exception
 	{
 		this.testedController  = null;
 	}
 
+	/**
+	 * Tests if we have enough data members and they are private.
+	 */
 	@Test
 	void testDataMembers()
 	{
@@ -37,6 +51,9 @@ public class ControllerTest
 		}
 	}
 
+	/**
+	 * Tests if we have enough methods.
+	 */
 	@Test
 	void testControllerMethods()
 	{
@@ -45,6 +62,9 @@ public class ControllerTest
 	}
 
 
+	/**
+	 * Tests if everything about the start method is correct.
+	 */
 	@Test
 	void testStartMethod()
 	{
