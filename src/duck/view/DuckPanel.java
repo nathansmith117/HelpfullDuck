@@ -5,6 +5,7 @@ import javax.swing.JLabel;
 import javax.swing.JButton;
 import javax.swing.SpringLayout;
 import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 
 import java.awt.Color;
 import java.awt.Image;
@@ -31,6 +32,8 @@ public class DuckPanel extends JPanel
 	private JPanel menuPanel;
 	private JButton duckButton;
 	private JButton newWindowButton;
+	private JButton saveButton;
+	private JButton loadButton;
 	
 	private URL duckURL;
 	
@@ -48,6 +51,8 @@ public class DuckPanel extends JPanel
 		this.menuPanel = new JPanel(new GridLayout(0, 1));
 		this.duckButton = new JButton("Duck");
 		this.newWindowButton = new JButton("New window");
+		this.saveButton = new JButton("Save");
+		this.loadButton = new JButton("Load");
 		
 		this.duckURL = null;
 		
@@ -69,6 +74,8 @@ public class DuckPanel extends JPanel
 		
 		menuPanel.add(duckButton);
 		menuPanel.add(newWindowButton);
+		menuPanel.add(saveButton);
+		menuPanel.add(loadButton);
 	}
 	
 	/**
@@ -94,6 +101,32 @@ public class DuckPanel extends JPanel
 		layout.putConstraint(SpringLayout.WEST, displayLabel, 10, SpringLayout.EAST, menuPanel);
 		layout.putConstraint(SpringLayout.EAST, displayLabel, 10, SpringLayout.EAST, this);
 		layout.putConstraint(SpringLayout.SOUTH, displayLabel, 10, SpringLayout.SOUTH, this);
+	}
+	
+	private void saveWindows()
+	{
+		JFileChooser fileChooser = new JFileChooser();
+		
+		int result = fileChooser.showSaveDialog(this);
+		
+		if (result == JFileChooser.APPROVE_OPTION)
+		{
+			String filePath = fileChooser.getSelectedFile().getPath();
+			app.saveDuckWindows(filePath);
+		}
+	}
+	
+	private void loadWindows()
+	{
+		JFileChooser fileChooser = new JFileChooser();
+		
+		int result = fileChooser.showOpenDialog(this);
+		
+		if (result == JFileChooser.APPROVE_OPTION)
+		{
+			String filePath = fileChooser.getSelectedFile().getPath();
+			app.loadDuckWindows(filePath);
+		}
 	}
 	
 	/**
