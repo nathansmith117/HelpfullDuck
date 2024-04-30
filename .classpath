@@ -5,6 +5,7 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="/Users/nsmi0277/Documents/dev/java/HelpfullDuck/jackson-annotations-2.16.1.jar"/>
 	<classpathentry kind="lib" path="/Users/nsmi0277/Documents/dev/java/HelpfullDuck/jackson-core-2.16.1.jar"/>
