@@ -44,7 +44,6 @@ public class PopupPanelTest
 
 	/**
 	 * Checks if it has the setup methods.
-	 * It doesn't care if the methods are private or public since its being controlled by another panel.
 	 */
 	@Test
 	void testFrameworkMethodsExist()

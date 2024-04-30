@@ -57,8 +57,6 @@ public class PanelTest
 		
 		for (Method method : methods)
 		{
-			assertTrue(Modifier.isPrivate(method.getModifiers()), "The " + method.getName()+ " method must be private");
-			
 			if (method.getName().equals("setupPanel"))
 			{
 				hasSetupPanel = true;

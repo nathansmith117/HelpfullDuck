@@ -12,6 +12,7 @@ import java.awt.GridLayout;
 import java.awt.MouseInfo;
 import java.awt.Point;
 
+import duck.model.DuckWindowState;
 import duck.controller.Controller;
 import duck.controller.IOController;
 
@@ -126,7 +127,7 @@ public class DuckPanel extends JPanel
 	 * Loads a duck on screen from a url.
 	 * @param duckURL The url to the duck image.
 	 */
-	private void loadDuck(URL duckURL)
+	public void loadDuck(URL duckURL)
 	{
 		this.duckURL = duckURL;
 		ImageIcon duckIcon = IOController.readImageIconFromURL(app, duckURL, 640);
@@ -134,11 +135,22 @@ public class DuckPanel extends JPanel
 	}
 	
 	/**
-	 * Gets the url of the current duck.
-	 * @return The url or null.
+	 * Gets the window state for saving.
+	 * @return The window state.
 	 */
-	private URL getDuckURL()
+	public DuckWindowState toDuckWindowState()
 	{
-		return this.duckURL;
+		DuckWindowState windowState = new DuckWindowState(duckURL);
+		
+		return windowState;
+	}
+	
+	/**
+	 * Sets things about the window to the information in the window state.
+	 * @param windowState The state to load.
+	 */
+	public void loadDuckWindowState(DuckWindowState windowState)
+	{
+		loadDuck(windowState.getDuckURL());
 	}
 }
