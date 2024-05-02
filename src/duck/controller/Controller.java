@@ -104,7 +104,7 @@ public class Controller
 		// Add popup windows.
 		for (DuckPopupFrame duckWindow : duckWindows)
 		{
-			windowStates.add(duckWindow.getPanel().toDuckWindowState());
+			windowStates.add(((DuckPopupPanel)duckWindow.getContentPane()).toDuckWindowState());
 		}
 		
 		// Save to file.
@@ -134,7 +134,7 @@ public class Controller
 		for (int index = 1; index < windowStates.size(); index++)
 		{
 			DuckPopupFrame popupWindow = new DuckPopupFrame(this);
-			popupWindow.getPanel().loadDuckWindowState(windowStates.get(index));
+			((DuckPopupPanel)popupWindow.getContentPane()).loadDuckWindowState(windowStates.get(index));
 			duckWindows.add(popupWindow);
 		}
 	}

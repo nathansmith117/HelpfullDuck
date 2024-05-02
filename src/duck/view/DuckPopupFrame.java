@@ -38,15 +38,6 @@ public class DuckPopupFrame extends JFrame
 	}
 
 	/**
-	 * Used to get the duck popup panel so it can be controlled by the master window.
-	 * @return A duck popup panel.
-	 */
-	public DuckPopupPanel getPanel()
-	{
-		return this.panel;
-	}
-	
-	/**
 	 * Overrides the dispose so it can remove itself from the controller when closed.
 	 */
 	@Override

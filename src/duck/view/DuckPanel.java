@@ -15,6 +15,7 @@ import java.awt.MouseInfo;
 import java.awt.Point;
 
 import duck.model.DuckWindowState;
+import duck.view.DuckPopupPanel;
 import duck.controller.Controller;
 import duck.controller.IOController;
 import javax.swing.SwingUtilities;
@@ -145,7 +146,7 @@ public class DuckPanel extends JPanel
 		duckWindow.setLocation(mousePoint.x, mousePoint.y);
 		
 		// Loads a duck on open.
-		duckWindow.getPanel().loadRandomDuck();
+		((DuckPopupPanel)duckWindow.getContentPane()).loadRandomDuck();
 		
 		app.addDuckWindow(duckWindow);
 	}
