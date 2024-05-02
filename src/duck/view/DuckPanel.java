@@ -108,6 +108,9 @@ public class DuckPanel extends JPanel
 		layout.putConstraint(SpringLayout.SOUTH, displayLabel, 10, SpringLayout.SOUTH, this);
 	}
 	
+	/**
+	 * Opens a file chooser and saves the windows to the file.
+	 */
 	private void saveWindows()
 	{
 		JFileChooser fileChooser = new JFileChooser(".");
@@ -121,6 +124,9 @@ public class DuckPanel extends JPanel
 		}
 	}
 	
+	/**
+	 * Opens a file chooser and loads the windows from that file.
+	 */
 	private void loadWindows()
 	{
 		JFileChooser fileChooser = new JFileChooser(".");

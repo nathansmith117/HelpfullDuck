@@ -4,10 +4,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>20</x>
-      <y>30</y>
+      <x>0</x>
+      <y>10</y>
       <w>340</w>
-      <h>190</h>
+      <h>270</h>
     </coordinates>
     <panel_attributes>Controller
 bg=blue
@@ -22,29 +22,33 @@ bg=blue
 + handleError(Exception) : void
 + getRandomDuckURL() : URL
 + addDuckWindow(DuckPopupFrame) : void
-+ removeDuckWindow(DuckPopupFrame) : void</panel_attributes>
++ removeDuckWindow(DuckPopupFrame) : void
++ saveDuckWindows(String) : void
++ loadDuckWindows(String) : void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>420</x>
-      <y>40</y>
-      <w>410</w>
+      <x>350</x>
+      <y>0</y>
+      <w>530</w>
       <h>110</h>
     </coordinates>
     <panel_attributes>IOController
 bg=blue
 --
 _+ readSingleJSON(Controller, String, String, String) : Object_
-_+ readImageIconFromURL(Controller, URL, int) : ImageIcon_</panel_attributes>
+_+ readImageIconFromURL(Controller, URL, int) : ImageIcon_
+_+ saveWindowStates(Controller, String, ArrayList&lt;DuckWindowState&gt; : void_
+_+ loadWindowStates(Controller, String) : ArrayList&lt;DuckWindowState&gt;_</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>20</x>
-      <y>230</y>
+      <x>0</x>
+      <y>290</y>
       <w>280</w>
       <h>90</h>
     </coordinates>
@@ -58,8 +62,8 @@ Don't know how to do that in uml ):</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>10</x>
-      <y>360</y>
+      <x>0</x>
+      <y>390</y>
       <w>320</w>
       <h>110</h>
     </coordinates>
@@ -76,10 +80,10 @@ bg=red
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>350</x>
-      <y>270</y>
-      <w>300</w>
-      <h>230</h>
+      <x>360</x>
+      <y>130</y>
+      <w>370</w>
+      <h>350</h>
     </coordinates>
     <panel_attributes>DuckPanel
 bg=red
@@ -90,20 +94,27 @@ bg=red
 - menuPanel : JPanel
 - duckButton : JButton
 - newWindowButton : JButton
+- saveButton : JButton
+- loadButton : JButton
 --
 + DuckPanel(Controller) : constructor
 - setupPanel() : void
 - setupListeners() : void
 - setupLayout() : void
+- saveWindows() : void
+- loadWindows() : void
 - openDuckWindow() : void
-- loadRandomDuck() : void</panel_attributes>
+- loadRandomDuck() : void
++ loadDuck(URL) : void
++ toDuckWindowState() : DuckWindowState
++ loadDuckWindowState(DuckWindowState) : void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>30</x>
-      <y>530</y>
+      <x>0</x>
+      <y>510</y>
       <w>390</w>
       <h>150</h>
     </coordinates>
@@ -115,17 +126,16 @@ bg=red
 --
 + DuckPopupFrame(Controller) : constructor
 - setupFrame() : void
-+ getPanel() : DuckPopupPanel
 + dispose() : void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>450</x>
-      <y>540</y>
-      <w>330</w>
-      <h>270</h>
+      <x>0</x>
+      <y>670</y>
+      <w>370</w>
+      <h>220</h>
     </coordinates>
     <panel_attributes>DuckPopupPanel
 bg=red
@@ -138,7 +148,28 @@ bg=red
 - setupPanel() : void
 - setupListeners() : void
 - setupLayout() : void
-+ loadRandomDuck() : void</panel_attributes>
++ loadRandomDuck() : void
++ loadDuck(URL) : void
++ toDuckWindowState() : DuckWindowState
++ loadDuckWindowState(DuckWindowState) : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>440</x>
+      <y>510</y>
+      <w>330</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>DuckWindowState
+bg=yellow
+--
+- duckURL : URL
+- location : Point
+--
++ DuckWindowState(URL, Point) : constructor
++ get()</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>

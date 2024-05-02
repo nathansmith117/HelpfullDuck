@@ -111,6 +111,10 @@ public class Controller
 		IOController.saveWindowStates(this, fileName, windowStates);
 	}
 	
+	/**
+	 * Loads the windows from a file
+	 * @param fileName The file to load from.
+	 */
 	public void loadDuckWindows(String fileName)
 	{
 		ArrayList<DuckWindowState> windowStates = IOController.loadWindowStates(this, fileName);
