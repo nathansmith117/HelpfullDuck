@@ -6,6 +6,7 @@ import javax.swing.JButton;
 import javax.swing.SpringLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.JFrame;
 
 import java.awt.Color;
 import java.awt.Image;
@@ -16,6 +17,7 @@ import java.awt.Point;
 import duck.model.DuckWindowState;
 import duck.controller.Controller;
 import duck.controller.IOController;
+import javax.swing.SwingUtilities;
 
 import java.net.URL;
 
@@ -175,7 +177,8 @@ public class DuckPanel extends JPanel
 	 */
 	public DuckWindowState toDuckWindowState()
 	{
-		DuckWindowState windowState = new DuckWindowState(duckURL);
+		JFrame window = (JFrame)SwingUtilities.windowForComponent(this);
+		DuckWindowState windowState = new DuckWindowState(duckURL, window.getLocation());
 		
 		return windowState;
 	}
@@ -193,5 +196,9 @@ public class DuckPanel extends JPanel
 		{
 			loadDuck(windowState.getDuckURL());
 		}
+		
+		// Set window location.
+		JFrame window = (JFrame)SwingUtilities.windowForComponent(this);
+		window.setLocation(windowState.getLocation());
 	}
 }

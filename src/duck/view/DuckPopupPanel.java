@@ -2,8 +2,10 @@ package duck.view;
 
 import javax.swing.JPanel;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SpringLayout;
+import javax.swing.SwingUtilities;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -134,7 +136,8 @@ public class DuckPopupPanel extends JPanel
 	 */
 	public DuckWindowState toDuckWindowState()
 	{
-		DuckWindowState windowState = new DuckWindowState(duckURL);
+		JFrame window = (JFrame)SwingUtilities.windowForComponent(this);
+		DuckWindowState windowState = new DuckWindowState(duckURL, window.getLocation());
 		
 		return windowState;
 	}
@@ -149,5 +152,9 @@ public class DuckPopupPanel extends JPanel
 		{
 			loadDuck(windowState.getDuckURL());
 		}
+		
+		// Set window location.
+		JFrame window = (JFrame)SwingUtilities.windowForComponent(this);
+		window.setLocation(windowState.getLocation());
 	}
 }
