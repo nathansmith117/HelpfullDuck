@@ -85,6 +85,8 @@ public class DuckPanel extends JPanel
 	{
 		duckButton.addActionListener(click -> loadRandomDuck());
 		newWindowButton.addActionListener(click -> openDuckWindow());
+		saveButton.addActionListener(click -> saveWindows());
+		loadButton.addActionListener(click -> loadWindows());
 	}
 	
 	/**
@@ -105,7 +107,7 @@ public class DuckPanel extends JPanel
 	
 	private void saveWindows()
 	{
-		JFileChooser fileChooser = new JFileChooser();
+		JFileChooser fileChooser = new JFileChooser(".");
 		
 		int result = fileChooser.showSaveDialog(this);
 		
@@ -118,7 +120,7 @@ public class DuckPanel extends JPanel
 	
 	private void loadWindows()
 	{
-		JFileChooser fileChooser = new JFileChooser();
+		JFileChooser fileChooser = new JFileChooser(".");
 		
 		int result = fileChooser.showOpenDialog(this);
 		
@@ -184,6 +186,12 @@ public class DuckPanel extends JPanel
 	 */
 	public void loadDuckWindowState(DuckWindowState windowState)
 	{
-		loadDuck(windowState.getDuckURL());
+		duckURL = null;
+		displayLabel.setIcon(null);
+		
+		if (windowState.getDuckURL() != null)
+		{
+			loadDuck(windowState.getDuckURL());
+		}
 	}
 }

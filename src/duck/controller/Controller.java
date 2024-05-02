@@ -117,16 +117,20 @@ public class Controller
 		
 		if (windowStates == null || windowStates.size() < 1)
 		{
-			JOptionPane.showMessageDialog(window, "Issue loading window states", "woooopsy", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(window, "Issue loading window states", "no oh ):", JOptionPane.ERROR_MESSAGE);
 			return; // Return early.
 		}
 		
 		// Main window.
 		((DuckPanel)window.getContentPane()).loadDuckWindowState(windowStates.get(0));
 		
-		// Other windows.
-		duckWindows.clear();
+		// The windows are auto removed from the list on dispose.
+		while (duckWindows.size() != 0)
+		{
+			duckWindows.get(0).dispose();
+		}
 		
+		// Other windows.
 		for (int index = 1; index < windowStates.size(); index++)
 		{
 			DuckPopupFrame popupWindow = new DuckPopupFrame(this);

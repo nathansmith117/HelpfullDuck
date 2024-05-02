@@ -112,7 +112,8 @@ public class DuckPopupPanel extends JPanel
 	 */
 	public void loadRandomDuck()
 	{
-		ImageIcon duckIcon = IOController.readImageIconFromURL(app, app.getRandomDuckURL(), 480);
+		duckURL = app.getRandomDuckURL();
+		ImageIcon duckIcon = IOController.readImageIconFromURL(app, duckURL, 640);
 		displayLabel.setIcon(duckIcon);
 	}
 	
@@ -144,6 +145,9 @@ public class DuckPopupPanel extends JPanel
 	 */
 	public void loadDuckWindowState(DuckWindowState windowState)
 	{
-		loadDuck(windowState.getDuckURL());
+		if (windowState.getDuckURL() != null)
+		{
+			loadDuck(windowState.getDuckURL());
+		}
 	}
 }
