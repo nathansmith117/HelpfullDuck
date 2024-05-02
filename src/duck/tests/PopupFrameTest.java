@@ -51,7 +51,7 @@ public class PopupFrameTest
 	{
 		assertTrue(testedFrame instanceof JFrame, "DuckPopupFrame needs to extend JFrame");
 		Method [] methods = testedFrame.getClass().getDeclaredMethods();
-		assertTrue(methods.length == 3, "You need 3 methods in the DuckPopupFrame");
+		assertTrue(methods.length == 2, "You need 2 methods in the DuckPopupFrame");
 		assertTrue(!testedFrame.isResizable(), "Your DuckPopupFrame should NOT be resizable!");
 		assertTrue(testedFrame.getTitle().equals("Another duck!"), "The title needs to be \"Helpfull Duck\"");
 		assertTrue(testedFrame.getContentPane() instanceof DuckPopupPanel, "Your DuckPopupFrame needs to have a DuckPopupPanel inside");
