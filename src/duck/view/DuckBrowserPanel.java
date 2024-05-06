@@ -49,7 +49,6 @@ public class DuckBrowserPanel extends JPanel
 		webScrollPane.setViewportView(webPane);
 		webScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 		webScrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-		webPane.setEnabled(false);
 		
 		this.add(addressBar);
 		this.add(webScrollPane);
@@ -94,8 +93,6 @@ public class DuckBrowserPanel extends JPanel
 		{
 			return;
 		}
-		
-		JEditorPane useless = (JEditorPane)event.getSource();
 		
 		if (event instanceof HTMLFrameHyperlinkEvent)
 		{
