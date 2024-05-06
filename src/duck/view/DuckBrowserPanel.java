@@ -8,6 +8,7 @@ import javax.swing.text.html.HTMLDocument;
 import javax.swing.SpringLayout;
 import javax.swing.JTextField;
 import javax.swing.JEditorPane;
+import javax.swing.JScrollPane;
 
 import java.io.IOException;
 
@@ -16,8 +17,10 @@ import duck.controller.Controller;
 public class DuckBrowserPanel extends JPanel
 {
 	private Controller app;
+	
 	private SpringLayout layout;
 	private JTextField addressBar;
+	private JScrollPane webScrollPane;
 	private JEditorPane webPane;
 	
 	public DuckBrowserPanel(Controller app)
@@ -27,6 +30,7 @@ public class DuckBrowserPanel extends JPanel
 		
 		this.layout = new SpringLayout();
 		this.addressBar = new JTextField();
+		this.webScrollPane = new JScrollPane();
 		this.webPane = new JEditorPane();
 		
 		setupPanel();
@@ -41,8 +45,14 @@ public class DuckBrowserPanel extends JPanel
 		// This is set to make the hyperlink listener work.
 		webPane.setEditable(false);
 		
+		// Setup the scroll bar.
+		webScrollPane.setViewportView(webPane);
+		webScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+		webScrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		webPane.setEnabled(false);
+		
 		this.add(addressBar);
-		this.add(webPane);
+		this.add(webScrollPane);
 		
 		setWebPage("http://frogfind.com");
 	}
@@ -60,10 +70,10 @@ public class DuckBrowserPanel extends JPanel
 		layout.putConstraint(SpringLayout.EAST, addressBar, 0, SpringLayout.EAST, this);
 		layout.putConstraint(SpringLayout.SOUTH, addressBar, 20, SpringLayout.NORTH, this);
 		
-		layout.putConstraint(SpringLayout.NORTH, webPane, 0, SpringLayout.SOUTH, addressBar);
-		layout.putConstraint(SpringLayout.WEST, webPane, 0, SpringLayout.WEST, this);
-		layout.putConstraint(SpringLayout.EAST, webPane, 0, SpringLayout.EAST, this);
-		layout.putConstraint(SpringLayout.SOUTH, webPane, 0, SpringLayout.SOUTH, this);
+		layout.putConstraint(SpringLayout.NORTH, webScrollPane, 0, SpringLayout.SOUTH, addressBar);
+		layout.putConstraint(SpringLayout.WEST, webScrollPane, 0, SpringLayout.WEST, this);
+		layout.putConstraint(SpringLayout.EAST, webScrollPane, 0, SpringLayout.EAST, this);
+		layout.putConstraint(SpringLayout.SOUTH, webScrollPane, 0, SpringLayout.SOUTH, this);
 	}
 	
 	private void setWebPage(String url)
