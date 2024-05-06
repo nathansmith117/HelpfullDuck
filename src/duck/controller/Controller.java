@@ -8,6 +8,7 @@ import duck.view.DuckFrame;
 import duck.view.DuckPanel;
 import duck.view.DuckPopupFrame;
 import duck.view.DuckPopupPanel;
+import duck.view.DuckBrowserFrame;
 
 import java.net.URL;
 import java.net.MalformedURLException;
@@ -24,6 +25,8 @@ public class Controller
 	// A list of all the duck popup windows.
 	private ArrayList<DuckPopupFrame> duckWindows;
 	
+	private DuckBrowserFrame browserWindow;
+	
 	/**
 	 * Initializes all the data members and opens a window.
 	 */
@@ -32,6 +35,10 @@ public class Controller
 		this.duckURLBase = "https://random-d.uk/api/";
 		this.window = new DuckFrame(this);
 		this.duckWindows = new ArrayList<DuckPopupFrame>();
+		
+		this.browserWindow = new DuckBrowserFrame(this);
+		hideDuckBrowser();
+	
 	}
 	
 	/**
@@ -141,5 +148,15 @@ public class Controller
 			((DuckPopupPanel)popupWindow.getContentPane()).loadDuckWindowState(windowStates.get(index));
 			duckWindows.add(popupWindow);
 		}
+	}
+	
+	public void showDuckBrowser()
+	{
+		browserWindow.setVisible(true);
+	}
+	
+	public void hideDuckBrowser()
+	{
+		browserWindow.setVisible(false);
 	}
 }

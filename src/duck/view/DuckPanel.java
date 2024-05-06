@@ -91,6 +91,7 @@ public class DuckPanel extends JPanel
 	{
 		duckButton.addActionListener(click -> loadRandomDuck());
 		newWindowButton.addActionListener(click -> openDuckWindow());
+		browserButton.addActionListener(click -> app.showDuckBrowser());
 		saveButton.addActionListener(click -> saveWindows());
 		loadButton.addActionListener(click -> loadWindows());
 	}
