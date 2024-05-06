@@ -5,7 +5,11 @@ import javax.swing.JFrame;
 import duck.controller.Controller;
 
 /**
+<<<<<<< Updated upstream
  * The frame for the duck browser. Its a very simple web browser.
+=======
+ * A frame for a simple web browser.
+>>>>>>> Stashed changes
  */
 public class DuckBrowserFrame extends JFrame
 {
@@ -13,7 +17,11 @@ public class DuckBrowserFrame extends JFrame
 	private DuckBrowserPanel panel;
 	
 	/**
+<<<<<<< Updated upstream
 	 * Creates the duck browser frame.
+=======
+	 * Creates a new duck browser frame.
+>>>>>>> Stashed changes
 	 * @param app The controller for the app.
 	 */
 	public DuckBrowserFrame(Controller app)
