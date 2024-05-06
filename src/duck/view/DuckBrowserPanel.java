@@ -1,7 +1,6 @@
 package duck.view;
 
 import javax.swing.JPanel;
-<<<<<<< Updated upstream
 import javax.swing.event.HyperlinkListener;
 import javax.swing.event.HyperlinkEvent;
 import javax.swing.text.html.HTMLFrameHyperlinkEvent;
@@ -12,26 +11,19 @@ import javax.swing.JEditorPane;
 import javax.swing.JScrollPane;
 
 import java.io.IOException;
-=======
->>>>>>> Stashed changes
 
 import duck.controller.Controller;
 
 /**
-<<<<<<< Updated upstream
  * The panel for the simple web browser.
  * Resources I used to get this working:
  * - https://gist.github.com/masnagam/ec6fd335b75bbe87aea7
  * - https://docs.oracle.com/javase/8/docs/api/javax/swing/JEditorPane.html
-=======
- * The panel for a very simple web browser.
->>>>>>> Stashed changes
  */
 public class DuckBrowserPanel extends JPanel
 {
 	private Controller app;
 	
-<<<<<<< Updated upstream
 	private SpringLayout layout;
 	private JTextField addressBar;
 	private JScrollPane webScrollPane;
@@ -40,32 +32,23 @@ public class DuckBrowserPanel extends JPanel
 	/**
 	 * Creates the duck browser panel.
 	 * @param app The controller for the app.
-=======
-	/**
-	 * Creates a new duck browser.
-	 * @param app The controller for the program.
->>>>>>> Stashed changes
 	 */
 	public DuckBrowserPanel(Controller app)
 	{
 		super();
 		this.app = app;
 		
-<<<<<<< Updated upstream
 		this.layout = new SpringLayout();
 		this.addressBar = new JTextField();
 		this.webScrollPane = new JScrollPane();
 		this.webPane = new JEditorPane();
 		
-=======
->>>>>>> Stashed changes
 		setupPanel();
 		setupListeners();
 		setupLayout();
 	}
 	
 	/**
-<<<<<<< Updated upstream
 	 * Sets up the pane.
 	 */
 	private void setupPanel()
@@ -149,28 +132,5 @@ public class DuckBrowserPanel extends JPanel
 			addressBar.setText(url);
 			setWebPage(url);
 		}
-=======
-	 * Handles the setup of thingies on the panel.
-	 */
-	private void setupPanel()
-	{
-		
-	}
-	
-	/**
-	 * Handles the listeners.
-	 */
-	private void setupListeners()
-	{
-		
-	}
-	
-	/**
-	 * Layout, the most annoying part lmao.
-	 */
-	private void setupLayout()
-	{
-		
->>>>>>> Stashed changes
 	}
 }
