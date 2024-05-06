@@ -4,11 +4,18 @@ import javax.swing.JFrame;
 
 import duck.controller.Controller;
 
+/**
+ * The frame for the duck browser. Its a very simple web browser.
+ */
 public class DuckBrowserFrame extends JFrame
 {
 	private Controller app;
 	private DuckBrowserPanel panel;
 	
+	/**
+	 * Creates the duck browser frame.
+	 * @param app The controller for the app.
+	 */
 	public DuckBrowserFrame(Controller app)
 	{
 		super();
@@ -18,6 +25,9 @@ public class DuckBrowserFrame extends JFrame
 		setupFrame();
 	}
 	
+	/**
+	 * Sets up the frame.
+	 */
 	private void setupFrame()
 	{
 		setContentPane(panel);

@@ -150,11 +150,17 @@ public class Controller
 		}
 	}
 	
+	/*
+	 * Shows the duck browser.
+	 */
 	public void showDuckBrowser()
 	{
 		browserWindow.setVisible(true);
 	}
 	
+	/**
+	 * Hides the duck browser.
+	 */
 	public void hideDuckBrowser()
 	{
 		browserWindow.setVisible(false);

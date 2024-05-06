@@ -14,6 +14,12 @@ import java.io.IOException;
 
 import duck.controller.Controller;
 
+/**
+ * The panel for the simple web browser.
+ * Resources I used to get this working:
+ * - https://gist.github.com/masnagam/ec6fd335b75bbe87aea7
+ * - https://docs.oracle.com/javase/8/docs/api/javax/swing/JEditorPane.html
+ */
 public class DuckBrowserPanel extends JPanel
 {
 	private Controller app;
@@ -23,6 +29,10 @@ public class DuckBrowserPanel extends JPanel
 	private JScrollPane webScrollPane;
 	private JEditorPane webPane;
 	
+	/**
+	 * Creates the duck browser panel.
+	 * @param app The controller for the app.
+	 */
 	public DuckBrowserPanel(Controller app)
 	{
 		super();
@@ -38,6 +48,9 @@ public class DuckBrowserPanel extends JPanel
 		setupLayout();
 	}
 	
+	/**
+	 * Sets up the pane.
+	 */
 	private void setupPanel()
 	{
 		setLayout(layout);
@@ -56,12 +69,18 @@ public class DuckBrowserPanel extends JPanel
 		setWebPage("http://frogfind.com");
 	}
 	
+	/**
+	 * Sets up the listeners.
+	 */
 	private void setupListeners()
 	{
 		addressBar.addActionListener(event -> setWebPage(addressBar.getText()));
 		webPane.addHyperlinkListener(event -> hyperLinkAction(event));
 	}
 	
+	/**
+	 * Sets up the layout.
+	 */
 	private void setupLayout()
 	{
 		layout.putConstraint(SpringLayout.NORTH, addressBar, 0, SpringLayout.NORTH, this);
@@ -75,6 +94,10 @@ public class DuckBrowserPanel extends JPanel
 		layout.putConstraint(SpringLayout.SOUTH, webScrollPane, 0, SpringLayout.SOUTH, this);
 	}
 	
+	/**
+	 * Sets the web page url. It will load in the editor.
+	 * @param url The url to load.
+	 */
 	private void setWebPage(String url)
 	{
 		try
@@ -87,6 +110,10 @@ public class DuckBrowserPanel extends JPanel
 		}
 	}
 	
+	/**
+	 * Handles a hyperlink action.
+	 * @param event The even to handle.
+	 */
 	private void hyperLinkAction(HyperlinkEvent event)
 	{
 		if (event.getEventType() != HyperlinkEvent.EventType.ACTIVATED)
