@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="15.0.0">
-  <zoom_level>10</zoom_level>
+  <zoom_level>7</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>0</x>
-      <y>10</y>
-      <w>340</w>
-      <h>270</h>
+      <x>147</x>
+      <y>70</y>
+      <w>238</w>
+      <h>189</h>
     </coordinates>
     <panel_attributes>Controller
 bg=blue
@@ -15,6 +15,7 @@ bg=blue
 - duckURLBase : String
 - window : DuckFrame
 - duckWindows : ArrayList&lt;DuckPopupFrame&gt;
+- browserWindow : DuckBrowserFrame
 --
 --
 + Controller() : constructor
@@ -24,16 +25,18 @@ bg=blue
 + addDuckWindow(DuckPopupFrame) : void
 + removeDuckWindow(DuckPopupFrame) : void
 + saveDuckWindows(String) : void
-+ loadDuckWindows(String) : void</panel_attributes>
++ loadDuckWindows(String) : void
++ showDuckBrowser() : void
++ hideDuckBrowser() : void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>350</x>
-      <y>0</y>
-      <w>530</w>
-      <h>110</h>
+      <x>126</x>
+      <y>273</y>
+      <w>371</w>
+      <h>77</h>
     </coordinates>
     <panel_attributes>IOController
 bg=blue
@@ -47,10 +50,10 @@ _+ loadWindowStates(Controller, String) : ArrayList&lt;DuckWindowState&gt;_</pan
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>0</x>
-      <y>290</y>
-      <w>280</w>
-      <h>90</h>
+      <x>518</x>
+      <y>189</y>
+      <w>196</w>
+      <h>63</h>
     </coordinates>
     <panel_attributes>InternetDuck
 bg=yellow
@@ -62,10 +65,10 @@ Don't know how to do that in uml ):</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>0</x>
-      <y>390</y>
-      <w>320</w>
-      <h>110</h>
+      <x>161</x>
+      <y>378</y>
+      <w>224</w>
+      <h>77</h>
     </coordinates>
     <panel_attributes>DuckFrame
 bg=red
@@ -80,10 +83,10 @@ bg=red
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>360</x>
-      <y>130</y>
-      <w>370</w>
-      <h>350</h>
+      <x>147</x>
+      <y>637</y>
+      <w>259</w>
+      <h>245</h>
     </coordinates>
     <panel_attributes>DuckPanel
 bg=red
@@ -113,10 +116,10 @@ bg=red
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>0</x>
-      <y>510</y>
-      <w>390</w>
-      <h>150</h>
+      <x>133</x>
+      <y>497</y>
+      <w>273</w>
+      <h>105</h>
     </coordinates>
     <panel_attributes>DuckPopupFrame
 bg=red
@@ -132,10 +135,10 @@ bg=red
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>0</x>
-      <y>670</y>
-      <w>370</w>
-      <h>220</h>
+      <x>427</x>
+      <y>385</y>
+      <w>259</w>
+      <h>154</h>
     </coordinates>
     <panel_attributes>DuckPopupPanel
 bg=red
@@ -157,10 +160,10 @@ bg=red
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>440</x>
-      <y>510</y>
-      <w>330</w>
-      <h>160</h>
+      <x>483</x>
+      <y>91</y>
+      <w>231</w>
+      <h>77</h>
     </coordinates>
     <panel_attributes>DuckWindowState
 bg=yellow
@@ -170,6 +173,48 @@ bg=yellow
 --
 + DuckWindowState(URL, Point) : constructor
 + get()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>455</x>
+      <y>574</y>
+      <w>231</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>DuckBrowserFrame
+bg=red
+--
+- app : Controller
+- panel : DuckBrowserPanel
+--
++ DuckBrowserFrame(Controller) : constructor
+- setupFrame() : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>441</x>
+      <y>686</y>
+      <w>280</w>
+      <h>147</h>
+    </coordinates>
+    <panel_attributes>DuckBrowserPanel
+bg=red
+--
+- app : Controller
+- addressBar : JTextField
+- webScrollPane : JScrollPane
+- webPane : JEditorPane
+--
++ DuckBrowserPanel(Controller) : constructor
+- setupPanel() : void
+- setupListeners() : void
+- setupLayout() : void
+- setWebPage(String) : void
+- hyperLinkAction(HyperlinkEvent) : void</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>
