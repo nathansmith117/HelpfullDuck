@@ -35,6 +35,7 @@ public class DuckPanel extends JPanel
 	private JPanel menuPanel;
 	private JButton duckButton;
 	private JButton newWindowButton;
+	private JButton browserButton;
 	private JButton saveButton;
 	private JButton loadButton;
 	
@@ -54,6 +55,7 @@ public class DuckPanel extends JPanel
 		this.menuPanel = new JPanel(new GridLayout(0, 1));
 		this.duckButton = new JButton("Duck");
 		this.newWindowButton = new JButton("New window");
+		this.browserButton = new JButton("Web browser");
 		this.saveButton = new JButton("Save");
 		this.loadButton = new JButton("Load");
 		
@@ -77,6 +79,7 @@ public class DuckPanel extends JPanel
 		
 		menuPanel.add(duckButton);
 		menuPanel.add(newWindowButton);
+		menuPanel.add(browserButton);
 		menuPanel.add(saveButton);
 		menuPanel.add(loadButton);
 	}
