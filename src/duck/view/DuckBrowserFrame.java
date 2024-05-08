@@ -34,7 +34,7 @@ public class DuckBrowserFrame extends JFrame
 		setSize(1027, 768);
 		setTitle("Duck Browser");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setResizable(false);
+		setResizable(true);
 		setVisible(true);
 	}
 }

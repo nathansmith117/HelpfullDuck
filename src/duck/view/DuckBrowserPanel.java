@@ -5,10 +5,14 @@ import javax.swing.event.HyperlinkListener;
 import javax.swing.event.HyperlinkEvent;
 import javax.swing.text.html.HTMLFrameHyperlinkEvent;
 import javax.swing.text.html.HTMLDocument;
+import javax.swing.text.Document;
 import javax.swing.SpringLayout;
 import javax.swing.JTextField;
 import javax.swing.JEditorPane;
 import javax.swing.JScrollPane;
+import javax.swing.JButton;
+
+import java.awt.GridLayout;
 
 import java.io.IOException;
 
@@ -29,6 +33,13 @@ public class DuckBrowserPanel extends JPanel
 	private JScrollPane webScrollPane;
 	private JEditorPane webPane;
 	
+	private JPanel menuPanel;
+	private JButton refreshButton;
+	private JButton backButton;
+	private JButton nextButton;
+	private JButton frogFindButton;
+	private JButton wibyButton;
+	
 	/**
 	 * Creates the duck browser panel.
 	 * @param app The controller for the app.
@@ -42,6 +53,13 @@ public class DuckBrowserPanel extends JPanel
 		this.addressBar = new JTextField();
 		this.webScrollPane = new JScrollPane();
 		this.webPane = new JEditorPane();
+		
+		this.menuPanel = new JPanel(new GridLayout(1, 0));
+		this.refreshButton = new JButton("refresh");
+		this.backButton = new JButton("back");
+		this.nextButton = new JButton("next");
+		this.frogFindButton = new JButton("frog");
+		this.wibyButton = new JButton("wiby");
 		
 		setupPanel();
 		setupListeners();
@@ -66,6 +84,14 @@ public class DuckBrowserPanel extends JPanel
 		this.add(addressBar);
 		this.add(webScrollPane);
 		
+		// Menu panel.
+		this.add(menuPanel);
+		menuPanel.add(refreshButton);
+		menuPanel.add(backButton);
+		menuPanel.add(nextButton);
+		menuPanel.add(frogFindButton);
+		menuPanel.add(wibyButton);
+		
 		setWebPage("http://frogfind.com");
 	}
 	
@@ -76,6 +102,8 @@ public class DuckBrowserPanel extends JPanel
 	{
 		addressBar.addActionListener(event -> setWebPage(addressBar.getText()));
 		webPane.addHyperlinkListener(event -> hyperLinkAction(event));
+		
+		refreshButton.addActionListener(event -> reloadWebPage());
 	}
 	
 	/**
@@ -88,10 +116,31 @@ public class DuckBrowserPanel extends JPanel
 		layout.putConstraint(SpringLayout.EAST, addressBar, 0, SpringLayout.EAST, this);
 		layout.putConstraint(SpringLayout.SOUTH, addressBar, 20, SpringLayout.NORTH, this);
 		
-		layout.putConstraint(SpringLayout.NORTH, webScrollPane, 0, SpringLayout.SOUTH, addressBar);
+		layout.putConstraint(SpringLayout.NORTH, menuPanel, 0, SpringLayout.SOUTH, addressBar);
+		layout.putConstraint(SpringLayout.WEST, menuPanel, 0, SpringLayout.WEST, this);
+		layout.putConstraint(SpringLayout.EAST, menuPanel, 0, SpringLayout.EAST, this);
+		layout.putConstraint(SpringLayout.SOUTH, menuPanel, 30, SpringLayout.SOUTH, addressBar);
+		
+		layout.putConstraint(SpringLayout.NORTH, webScrollPane, 0, SpringLayout.SOUTH, menuPanel);
 		layout.putConstraint(SpringLayout.WEST, webScrollPane, 0, SpringLayout.WEST, this);
 		layout.putConstraint(SpringLayout.EAST, webScrollPane, 0, SpringLayout.EAST, this);
 		layout.putConstraint(SpringLayout.SOUTH, webScrollPane, 0, SpringLayout.SOUTH, this);
+	}
+	
+	private void reloadWebPage()
+	{
+		try
+		{
+			// This will force reload the current page.
+			Document doc = webPane.getDocument();
+			String url = webPane.getPage().toString();
+			doc.putProperty(Document.StreamDescriptionProperty, null);
+			webPane.setPage(url);
+		}
+		catch (IOException error)
+		{
+			app.handleError(error);
+		}
 	}
 	
 	/**
