@@ -15,6 +15,8 @@ import javax.swing.JButton;
 import java.awt.GridLayout;
 
 import java.io.IOException;
+import java.util.Stack;
+import java.lang.NullPointerException;
 
 import duck.controller.Controller;
 
@@ -40,6 +42,10 @@ public class DuckBrowserPanel extends JPanel
 	private JButton frogFindButton;
 	private JButton wibyButton;
 	
+	// Used for handling back and next.
+	private Stack<String> backPageStack;
+	private Stack<String> nextPageStack;
+	
 	/**
 	 * Creates the duck browser panel.
 	 * @param app The controller for the app.
@@ -60,6 +66,9 @@ public class DuckBrowserPanel extends JPanel
 		this.nextButton = new JButton("next");
 		this.frogFindButton = new JButton("frog");
 		this.wibyButton = new JButton("wiby");
+		
+		this.backPageStack = new Stack<String>();
+		this.nextPageStack = new Stack<String>();
 		
 		setupPanel();
 		setupListeners();
@@ -104,6 +113,10 @@ public class DuckBrowserPanel extends JPanel
 		webPane.addHyperlinkListener(event -> hyperLinkAction(event));
 		
 		refreshButton.addActionListener(event -> reloadWebPage());
+		backButton.addActionListener(event -> goBackOnePage());
+		nextButton.addActionListener(event -> goForwardOnePage());
+		frogFindButton.addActionListener(event -> setWebPage("http://frogfind.com"));
+		wibyButton.addActionListener(event -> setWebPage("https://wiby.me"));
 	}
 	
 	/**
@@ -127,6 +140,40 @@ public class DuckBrowserPanel extends JPanel
 		layout.putConstraint(SpringLayout.SOUTH, webScrollPane, 0, SpringLayout.SOUTH, this);
 	}
 	
+	private void goBackOnePage()
+	{
+		if (!backPageStack.empty())
+		{
+			// Add to forward stack.
+			if (webPane.getPage() != null)
+			{
+				nextPageStack.add(webPane.getPage().toString());
+			}
+			
+			String url = backPageStack.pop();
+			setWebPage(url);
+		}
+	}
+	
+	private void goForwardOnePage()
+	{
+		if (!nextPageStack.empty())
+		{
+			
+			// Add to back stack.
+			if (webPane.getPage() != null)
+			{
+				backPageStack.add(webPane.getPage().toString());
+			}
+			
+			String url = nextPageStack.pop();
+			setWebPage(url);
+		}
+	}
+	
+	/**
+	 * Reloads the current web page.
+	 */
 	private void reloadWebPage()
 	{
 		try
@@ -141,6 +188,13 @@ public class DuckBrowserPanel extends JPanel
 		{
 			app.handleError(error);
 		}
+		catch (NullPointerException error)
+		{
+			app.handleError(error);
+		}
+		
+		backPageStack.clear();
+		nextPageStack.clear();
 	}
 	
 	/**
@@ -152,6 +206,7 @@ public class DuckBrowserPanel extends JPanel
 		try
 		{
 			webPane.setPage(url);
+			addressBar.setText(url);
 		}
 		catch (IOException error)
 		{
@@ -177,8 +232,13 @@ public class DuckBrowserPanel extends JPanel
 		}
 		else
 		{
+			// Add page to stack.
+			if (webPane.getPage() != null)
+			{
+				backPageStack.add(webPane.getPage().toString());
+			}
+			
 			String url = event.getURL().toString();
-			addressBar.setText(url);
 			setWebPage(url);
 		}
 	}
