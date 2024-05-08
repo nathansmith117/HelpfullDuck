@@ -140,6 +140,9 @@ public class DuckBrowserPanel extends JPanel
 		layout.putConstraint(SpringLayout.SOUTH, webScrollPane, 0, SpringLayout.SOUTH, this);
 	}
 	
+	/**
+	 * Goes back one web page.
+	 */
 	private void goBackOnePage()
 	{
 		if (!backPageStack.empty())
@@ -155,6 +158,9 @@ public class DuckBrowserPanel extends JPanel
 		}
 	}
 	
+	/**
+	 * Goes forward one web page.
+	 */
 	private void goForwardOnePage()
 	{
 		if (!nextPageStack.empty())
