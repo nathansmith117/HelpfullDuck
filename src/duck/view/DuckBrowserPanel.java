@@ -238,6 +238,8 @@ public class DuckBrowserPanel extends JPanel
 				backPageStack.add(webPane.getPage().toString());
 			}
 			
+			nextPageStack.clear();
+			
 			String url = event.getURL().toString();
 			setWebPage(url);
 		}
