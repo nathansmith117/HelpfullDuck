@@ -1,8 +1,8 @@
 package duck.tests;
 
 import duck.controller.Controller;
-import duck.view.DuckPopupPanel;
-import duck.view.DuckPopupFrame;
+import duck.view.DuckBrowserPanel;
+import duck.view.DuckBrowserFrame;
 import javax.swing.*;
 
 import java.awt.Component;
@@ -16,10 +16,10 @@ import org.junit.jupiter.api.Test;
 /**
  * A simple test for the popup frame.
  */
-public class PopupFrameTest
+public class DuckBrowserFrameTest
 {
 	private Controller testedController;
-	private DuckPopupFrame testedFrame;
+	private DuckBrowserFrame testedFrame;
 
 	/**
 	 * Creates the controller and popup frame.
@@ -29,7 +29,7 @@ public class PopupFrameTest
 	void setUp() throws Exception
 	{
 		this.testedController = new Controller();
-		this.testedFrame = new DuckPopupFrame(testedController);
+		this.testedFrame = new DuckBrowserFrame(testedController);
 	}
 
 	/**
@@ -49,12 +49,12 @@ public class PopupFrameTest
 	@Test
 	void testDuckFrame()
 	{
-		assertTrue(testedFrame instanceof JFrame, "DuckPopupFrame needs to extend JFrame");
+		assertTrue(testedFrame instanceof JFrame, "DuckBrowserFrame needs to extend JFrame");
 		Method [] methods = testedFrame.getClass().getDeclaredMethods();
-		assertTrue(methods.length == 2, "You need 2 methods in the DuckPopupFrame");
-		assertTrue(!testedFrame.isResizable(), "Your DuckPopupFrame should NOT be resizable!");
-		assertTrue(testedFrame.getTitle().equals("Another duck!"), "The title needs to be \"Another duck!\"");
-		assertTrue(testedFrame.getContentPane() instanceof DuckPopupPanel, "Your DuckPopupFrame needs to have a DuckPopupPanel inside");
+		assertTrue(methods.length == 1, "You need 1 method in the DuckBrowserFrame");
+		assertTrue(testedFrame.isResizable(), "Your DuckBrowserFrame should be resizable!");
+		assertTrue(testedFrame.getTitle().equals("Duck Browser"), "The title needs to be \"Duck Browser\"");
+		assertTrue(testedFrame.getContentPane() instanceof DuckBrowserPanel, "Your DuckBrowserFrame needs to have a DuckBrowserPanel inside");
 		assertTrue(testedFrame.getDefaultCloseOperation() == JFrame.DISPOSE_ON_CLOSE, "The close operation should be dispose on close");
 	}
 }
